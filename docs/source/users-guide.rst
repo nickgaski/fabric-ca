@@ -1337,7 +1337,7 @@ value need not be a boolean value.
 So how do you get an enrollment certificate with an attribute?
 There are two methods:
 
-  1. When you register an identity, you can specify that an enrollment certificate
+1.   When you register an identity, you can specify that an enrollment certificate
      issued for the identity should by default contain an attribute.  This behavior
      can be overridden at enrollment time, but this is useful for establishing
      default behavior and, assuming registration occurs outside of your application,
@@ -1348,12 +1348,13 @@ There are two methods:
      The ":ecert" suffix causes the *appAdmin* attribute to be inserted into user1's
      enrollment certificate by default.  The *email* attribute is not added
      to the enrollment certificate by default.
+
 .. code:: bash
 
     fabric-ca-client register --id.name user1 --id.secret user1pw --id.type user --id.affiliation org1 --id.attrs 'app1Admin=true:ecert,email=user1@gmail.com'
 
 
-  2. When you enroll an identity, you may request that one or more attributes
+2.   When you enroll an identity, you may request that one or more attributes
      be added to the certificate.
      For each attribute requested, you may specify whether the attribute is
      optional or not.  If it is not optional but does not exist for the identity,
@@ -1362,6 +1363,7 @@ There are two methods:
      The following shows how to enroll *user1* with the *email* attribute,
      without the *app1Admin* attribute, and optionally with the *phone*
      attribute (if the user possesses the *phone* attribute).
+
 .. code:: bash
 
     fabric-ca-client enroll -u http://user1:user1pw@localhost:7054 --enrollment.attrs "email,phone:opt"
